@@ -1,0 +1,11 @@
+requests_file
+requests 
+jsbeautifier
+lxml
+jsbeautifier==1.13.11
+webbrowser==0.5.1
+requests==2.26.0
+urllib3==1.26.7
+lxml==4.7.3
+requests-file==1.5.1
+
