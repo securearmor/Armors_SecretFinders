@@ -1,4 +1,4 @@
-## about Armors's_SecretFinder
+## About Armors's_SecretFinder
 
 Armor's_SecretFinder is a Python script based on SecretFinder original script. I have updated most of the regex searches in the JavaScript file to reduce false positives. Additionally, I've included a few more API searches that were not part of the original SecretFinder script.
 
