@@ -1,3 +1,8 @@
+## about Armors's_SecretFinder
+
+Armor's_SecretFinder is a Python script based on SecretFinder. However, I have updated the regex and added more API searches
+
+I will write blog about these enhancement soon : https://securearmors.com/blog
 
 ## about SecretFinder
 
