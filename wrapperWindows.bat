@@ -1,13 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if "%1" == "" (
+if "%~1" == "" (
     set "input_file=js.txt"
 ) else (
-    set "input_file=%1"
+    set "input_file=%~1"
 )
 
-for /f "tokens=*" %%a in (%input_file%) do (
+for /f "usebackq tokens=*" %%a in ("%input_file%") do (
 	echo.
     echo Running Secretfinder for: %%a
     python Secretfinder_v2.py -i "%%a" -o cli
