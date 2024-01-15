@@ -23,7 +23,7 @@ $ python -m pip install -r requirements.txt or pip install -r requirements.txt
 - Review the outputfile for secrets.
 
 ## Support for Windows
-<kbd>![](Images/Flow.gif)</kbd>
+<kbd>![](image/Flow.gif)</kbd>
 
 - Wrapper script is added to drag & drap the url list file on the wrapper script
 - Added 2 more regular expressions to enumerate NRIC & UEN numbers
