@@ -21,10 +21,14 @@ $ python -m pip install -r requirements.txt or pip install -r requirements.txt
 `./run_for_secret.sh`
 
 - Review the outputfile for secrets.
-  
-## Reference to original Script
-## about SecretFinder
+
+## Support for Windows
+<kbd>![](image/Flow.gif)</kbd>
+
+- Wrapper script is added to drag & drap the url list file on the wrapper script
+- Added 2 more regular expressions to enumerate NRIC & UEN numbers
+
+## About SecretFinder ( also the Reference to original script)
 
 SecretFinder is a python script based on [LinkFinder](https://github.com/GerbenJavado/LinkFinder), written to discover sensitive data like apikeys, accesstoken, authorizations, jwt,..etc in JavaScript files. It does so by using jsbeautifier for python in combination with a fairly large regular expression. The regular expressions consists of four small regular expressions. These are responsible for finding and search anything on js files.
 
-```
