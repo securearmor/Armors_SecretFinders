@@ -76,6 +76,8 @@ _regex = {
     'dockerhub_credentials': r'docker(?:-[a-zA-Z]+)?\s+login\s+-u\s+[a-zA-Z0-9_-]+\s+-p\s+[a-zA-Z0-9_-]+',
     'slack_webhook': r'https://hooks.slack.com/services/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+',
     'git_credentials': r'git(?:hub|lab)?(?:\s+clone)?(?:\s+-[a-zA-Z]+)?\s+(?:https?|git)://(?:[a-zA-Z0-9_-]+@)?[a-zA-Z0-9.-]+/(?:[a-zA-Z0-9_-]+/)+[a-zA-Z0-9_-]+(?:\.git)?',
+    'Singapore_UEN': r'((S|T)([\d]{2})([A-Z]{2})([\d]{4})([A-Z])|(\d{9})([A-Z]))',
+    'Singapore_NRIC': r'((S|T|F|G|M)([\d]{7})([A-Z]{1}))',
 }
 
 _template = '''
@@ -260,9 +262,24 @@ def parser_input(input):
     path = "file://%s"% os.path.abspath(input)
     return [path if os.path.exists(input) else parser_error('file could not be found (maybe you forgot to add http/https).')]
 
-
 def html_save(output):
     ''' html output '''
+    try:
+        with open(args.output, "w", encoding="utf-8") as text_file:
+            text_file.write(_template.replace('$$content$$', output))
+
+        abs_output_path = os.path.abspath(args.output)
+        print('URL to access output: file://%s' % abs_output_path)
+
+        if sys.platform == 'win32':
+            os.startfile(abs_output_path)  # Open file in default application on Windows
+        else:
+            webbrowser.open("file://" + abs_output_path)  # Open file in default application on other platforms
+    except Exception as err:
+        print(f'Output can\'t be saved in {args.output} due to exception: {err}')
+
+
+'''def html_save(output):
     hide = os.dup(1)
     os.close(1)
     os.open(os.devnull,os.O_RDWR)
@@ -280,7 +297,7 @@ def html_save(output):
     except Exception as err:
         print('Output can\'t be saved in %s due to exception: %s'%(args.output,err))
     finally:
-        os.dup2(hide,1)
+        os.dup2(hide,1)'''
 
 def cli_output(matched):
     ''' cli output '''
